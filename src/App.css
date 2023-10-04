@@ -1,38 +1,69 @@
-.App {
-  text-align: center;
-}
-
-.App-logo {
-  height: 40vmin;
-  pointer-events: none;
-}
-
-@media (prefers-reduced-motion: no-preference) {
-  .App-logo {
-    animation: App-logo-spin infinite 20s linear;
-  }
-}
-
-.App-header {
-  background-color: #282c34;
-  min-height: 100vh;
+.products-container {
   display: flex;
-  flex-direction: column;
-  align-items: center;
-  justify-content: center;
-  font-size: calc(10px + 2vmin);
+  flex-wrap: wrap;
+  gap: 20px;
+  justify-content: space-between;
+  padding: 20px;
+  background-color: #e9f2f9; /* Light blue for the background */
+}
+
+.product {
+  flex: 0 0 calc(25% - 20px); /* Adjusted to 25% for 4 items per row */
+  border: 1px solid #b0c8d4; /* Neutral border */
+  padding: 10px;
+  box-shadow: 0 4px 6px rgba(0, 110, 220, 0.1); /* Blue shadow */
+  transition: transform 0.3s ease;
+  background-color: #f7fafc; /* Very light blue background for products */
+}
+
+.product:hover {
+  transform: scale(1.05);
+  box-shadow: 0 6px 8px rgba(0, 100, 200, 0.15); /* Darker blue shadow on hover */
+}
+
+.product img {
+  max-width: 100%;
+  display: block;
+  margin: 0 auto 10px;
+  border-radius: 10px;
+}
+
+.product h2 {
+  font-size: 18px;
+  margin-top: 10px;
+  color: #4A90E2; /* Neutral blue for titles */
+}
+
+.product p {
+  font-size: 14px;
+  color: #5a6a7d; /* Dark grey-blue text color */
+}
+
+.button {
+  display: inline-block;
+  padding: 5px 10px;
+  border: none;
+  border-radius: 5px;
+  margin-top: 10px;
+  cursor: pointer;
+  transition: background-color 0.3s ease;
+}
+
+.button.addToCart {
+  background-color: #4A90E2; /* Blue button for "Add to Cart" */
   color: white;
+  margin-right: 5px; /* Space between buttons */
 }
 
-.App-link {
-  color: #61dafb;
+.button.addToCart:hover {
+  background-color: #357ABD;
 }
 
-@keyframes App-logo-spin {
-  from {
-    transform: rotate(0deg);
-  }
-  to {
-    transform: rotate(360deg);
-  }
+.button.addToWishlist {
+  background-color: #f0f5fa; /* Lighter blue for "Add to Wishlist" */
+  color: #4A90E2; /* Text color taken from the other button for consistency */
+}
+
+.button.addToWishlist:hover {
+  background-color: #dce8f3;
 }
