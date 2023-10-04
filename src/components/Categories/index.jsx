@@ -1,15 +1,27 @@
 import React, {useState,useEffect} from 'react'
-import './index.scss'
+import './index.scss';
+
 export default function Categories() {
     const [categories , setCategories]= useState([])
+  
+
+    const getCategories = async () => {
+        const response = await fetch('https://fakestoreapi.com/products/categories')
+        const data = await response.json()
+        setCategories(data)
+    }
 
     useEffect(()=>{
-        fetch('https://fakestoreapi.com/products/categories')
-        .then(res=>res.json())
-        .then(data=>setCategories(data))
+        getCategories();
+    
+        return () =>{
+            console.log('unmounting')
+        }
     },[])
+
     return (
         <div className="categories">
+
             {categories.map((category) => (
                 <div key={category.id} className="category-card">
   

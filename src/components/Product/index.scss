@@ -6,7 +6,7 @@
     overflow: hidden;
     transition: all 0.3s ease-in-out;
     box-shadow: 0px 5px 20px rgba(0, 0, 0, 0.05);
-    flex: 0 0 calc(25% - 45px); /* Adjusted to 25% for 4 items per row */
+    flex: 0 0 calc(25% - 45px);
 
     &:hover {
         transform: translateY(-10px);
@@ -20,28 +20,30 @@
 
     .product-content {
         padding: 15px;
-        flex: 1;
+       
         display: flex;
         flex-direction: column;
-
-        h2 {
+        height: 300px;
+        .card-title {
             font-size: 18px;
             margin-bottom: 10px;
             color: #333;
         }
 
-        p {
+        .card-text {
             flex: 1;
             font-size: 14px;
             color: #777;
             margin-bottom: 15px;
+            &:last-child {
+                margin-bottom: 0;
+            }
         }
     }
 
-    .button {
+    .button, .btn {
         padding: 10px 15px;
         border-radius: 5px;
-        border: none;
         cursor: pointer;
         font-size: 14px;
         margin-right: 10px;
@@ -49,21 +51,28 @@
     }
 
     .addToCart {
-        background-color: #4A90E2; /* Changed to a neutral blue */
+        background-color: #4A90E2;
         color: #fff;
 
         &:hover {
-            background-color: #357ABD; /* A slightly darker blue for hover */
+            background-color: #357ABD;
         }
     }
 
     .addToWishlist {
-        background-color: transparent;
-        color: #4A90E2; /* Blue to match the Add to Cart button */
-        border: 1px solid #4A90E2; /* Same blue for the border */
+        color: #4A90E2;
 
         &:hover {
-            background-color: #f7f7fa; 
+            background-color: #f7f7fa;
         }
     }
 }
+
+.product img {
+    width: 100%;
+    height: 200px; /* Set a fixed height */
+    object-fit: contain; /* Ensures images cover the area without distortion */
+    display: block;
+    margin: 0 auto 10px;
+    border-radius: 10px;
+  }

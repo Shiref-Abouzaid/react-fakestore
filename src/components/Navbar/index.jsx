@@ -1,5 +1,6 @@
 import React from 'react'
 import './index.scss'
+import {Container } from 'react-bootstrap';
 export default function Navbar() {
     return (
 <nav className="navbar">

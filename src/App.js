@@ -3,6 +3,9 @@ import React, { useState, useEffect } from "react";
 import Product from "./components/Product";
 import Navbar from "./components/Navbar";
 import Categories from "./components/Categories";
+import { Container, Row, Col } from 'react-bootstrap';
+
+import 'bootstrap/dist/css/bootstrap.min.css';
 function App() {
   const [products, setProducts] = useState([]);
   const [loading, setLoading] = useState(true);
@@ -29,13 +32,19 @@ function App() {
   if (error) return <div>Error: {error}</div>;
   return (
     <>
-      <Navbar />
-      <Categories />
-      <div className="products-container">
+    <Navbar />
+    <Categories />
+    <Container fluid className="products-container">
+      <Row className="g-4"> 
         {products.length &&
-          products.map((p) => <Product key={p.id} product={p} />)}
-      </div>
-    </>
+          products.map((p) => (
+            <Col xs={6} md={6} lg={3} key={p.id}>
+              <Product product={p} />
+            </Col>
+          ))}
+      </Row>
+    </Container>
+  </>
   );
 }
 

@@ -1,20 +1,25 @@
 import React from 'react';
 import './index.scss';
-
+import { Card, Button } from 'react-bootstrap';
 const Product = ({ product }) => {
+
     return (
-        <div className="product">
-            <img src={product.image} alt={product.title} />
-            <div className="product-content">
-                <h2>{product.title}</h2>
-                <p>{product.description}</p>
-                <p>Price: ${product.price}</p>
+        <Card className="product">
+            <Card.Img variant="top" src={product.image} alt={product.title} />
+            <Card.Body className="product-content">
+                <Card.Title>{product.title}</Card.Title>
+                <Card.Text>
+                    {product.description}
+                </Card.Text>
+                <Card.Text>
+                    Price: ${product.price}
+                </Card.Text>
                 <div>
-                    <button className="button addToCart">Add to Cart</button>
-                    <button className="button addToWishlist">Add to Wishlist</button>
+                    <Button variant="primary" className="addToCart">Add to Cart</Button>
+                    <Button variant="outline-primary" className="addToWishlist">Add to Wishlist</Button>
                 </div>
-            </div>
-        </div>
+            </Card.Body>
+        </Card>
     );
 };
 
