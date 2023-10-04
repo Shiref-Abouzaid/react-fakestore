@@ -1,6 +1,4 @@
-import logo from "./logo.svg";
 import "./App.css";
-import Welcome from "./components/Welcome";
 import React, { useState, useEffect } from "react";
 import Product from "./components/Product";
 import Navbar from "./components/Navbar";
