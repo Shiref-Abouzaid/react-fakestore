@@ -7,7 +7,18 @@
 .navbar {
     box-shadow: 0 2px 15px rgba(0, 0, 0, 0.1);
 }
+.cart-dropdown-item {
+   width: 300px !important; // Adjust as needed
+    overflow: hidden;
+    text-overflow: ellipsis;
 
+    // To apply max-width and ellipsis for the title
+    h6 {
+        white-space: nowrap;
+        overflow: hidden;
+        text-overflow: ellipsis;
+    }
+}
 .icon {
     font-size: 20px;
     margin-right: 5px;

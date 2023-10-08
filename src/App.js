@@ -6,6 +6,7 @@ import Home from "~/pages/Home";
 import Card from "~/pages/Card";
 import Product from "~/pages/Product/index";
 import 'bootstrap/dist/css/bootstrap.min.css';
+
 function App() {
 
 

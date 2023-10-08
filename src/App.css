@@ -17,7 +17,7 @@
 }
 
 .product:hover {
-  transform: scale(1.05);
+  
   box-shadow: 0 6px 8px rgba(0, 100, 200, 0.15); /* Darker blue shadow on hover */
 }
 

@@ -24,7 +24,7 @@ const Product = () => {
                 setLoading(false);
             });
 
-    }, []);
+    }, [params.id]);
 
     if (loading) {
         return <div>Loading...</div>;
