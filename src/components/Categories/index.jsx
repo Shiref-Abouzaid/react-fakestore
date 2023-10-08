@@ -13,10 +13,7 @@ export default function Categories() {
 
     useEffect(()=>{
         getCategories();
-    
-        return () =>{
-            console.log('unmounting')
-        }
+
     },[])
 
     return (
