@@ -1,10 +1,10 @@
 import "./App.css";
 
 
-import Navbar from "./components/Navbar";
+import Navbar from "~/components/Navbar";
 import { BrowserRouter, Routes, Route } from "react-router-dom";
-import Home from "./pages/Home";
-import Card from "./pages/Card";
+import Home from "~/pages/Home";
+import Card from "~/pages/Card";
 import 'bootstrap/dist/css/bootstrap.min.css';
 function App() {
 
@@ -14,8 +14,8 @@ function App() {
       <Navbar />
   
       <Routes>
-          <Route path="/" element={<Home />} />
-          <Route path="/card" element={<Card />} />
+          <Route path="/react-fakestore/" element={<Home />} />
+          <Route path="/react-fakestore/card" element={<Card />} />
 
         </Routes>
     </BrowserRouter>

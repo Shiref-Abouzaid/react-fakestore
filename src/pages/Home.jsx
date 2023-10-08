@@ -1,6 +1,6 @@
 import React, { useState, useEffect } from "react";
-import Product from "../components/Product";
-import Categories from "../components/Categories";
+import Product from "~/components/Product";
+import Categories from "~/components/Categories";
 import { Container, Row, Col } from 'react-bootstrap';
 
 const Home = () => {
