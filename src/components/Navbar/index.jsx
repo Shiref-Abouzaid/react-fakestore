@@ -1,11 +1,16 @@
 import React from 'react'
 import './index.scss'
 import { Navbar, Nav, Container, Badge } from 'react-bootstrap';
+import { Link } from "react-router-dom";
 export default function MyNavbar() {
     return (
         <Navbar bg="light" expand="lg">
             <Container  className="justify-content-between">
-                <Navbar.Brand href="#home">ShopName</Navbar.Brand>
+                <Navbar.Brand >
+                    <Link to="/">ShopName</Link>
+                    
+                    
+                    </Navbar.Brand>
                 <Navbar.Toggle aria-controls="basic-navbar-nav" />
                 <Navbar.Collapse id="basic-navbar-nav" className="justify-content-end">
                     <Nav>

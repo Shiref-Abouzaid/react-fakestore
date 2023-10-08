@@ -1,50 +1,24 @@
 import "./App.css";
-import React, { useState, useEffect } from "react";
-import Product from "./components/Product";
-import Navbar from "./components/Navbar";
-import Categories from "./components/Categories";
-import { Container, Row, Col } from 'react-bootstrap';
 
+import ReactDOM from "react-dom";
+import Navbar from "./components/Navbar";
+import { BrowserRouter, Routes, Route, Link } from "react-router-dom";
+import Home from "./pages/Home";
+import Card from "./pages/Card";
 import 'bootstrap/dist/css/bootstrap.min.css';
 function App() {
-  const [products, setProducts] = useState([]);
-  const [loading, setLoading] = useState(true);
-  const [error, setError] = useState(null);
 
-  useEffect(() => {
-    fetch("https://fakestoreapi.com/products")
-      .then((response) => {
-        if (!response.ok) {
-          throw new Error("Network response was not ok");
-        }
-        return response.json();
-      })
-      .then((data) => {
-        setProducts(data);
-        setLoading(false);
-      })
-      .catch((error) => {
-        setError(error.message);
-        setLoading(false);
-      });
-  }, []); // The empty dependency array means this useEffect will run once when the component mounts.
-  if (loading) return <div>Loading...</div>;
-  if (error) return <div>Error: {error}</div>;
+
   return (
-    <>
-    <Navbar />
-    <Categories />
-    <Container fluid className="products-container">
-      <Row className="g-4"> 
-        {products.length &&
-          products.map((p) => (
-            <Col xs={6} md={6} lg={3} key={p.id}>
-              <Product product={p} />
-            </Col>
-          ))}
-      </Row>
-    </Container>
-  </>
+    <BrowserRouter>
+      <Navbar />
+  
+      <Routes>
+          <Route path="/" element={<Home />} />
+          <Route path="/card" element={<Card />} />
+
+        </Routes>
+    </BrowserRouter>
   );
 }
 
