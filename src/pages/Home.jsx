@@ -1,4 +1,4 @@
-import React, { useState, useEffect } from "react";
+import React, { useState, useEffect , useCallback} from "react";
 import Product from "~/components/Product";
 import Categories from "~/components/Categories";
 import { Container, Row, Col, Spinner, Alert } from 'react-bootstrap';
@@ -14,7 +14,7 @@ const Home = () => {
 
   }
 
-  const getProdcutsCategory = () => {
+  const getProdcutsCategory = useCallback(() => {
     if (!selectedCategory) return;
     setLoading(true);
     fetch(`https://fakestoreapi.com/products/category/${selectedCategory}`)
@@ -31,8 +31,8 @@ const Home = () => {
       .catch(error => {
         setError(error.message);
         setLoading(false);
-      })
-  }
+      });
+  }, [selectedCategory]); 
 
   const getProducts = () => {
     setLoading(true);
@@ -55,7 +55,7 @@ const Home = () => {
 
   useEffect(() => {
     getProdcutsCategory();
-  }, [selectedCategory])
+  }, [selectedCategory, getProdcutsCategory])
 
   useEffect(() => {
     getProducts();
