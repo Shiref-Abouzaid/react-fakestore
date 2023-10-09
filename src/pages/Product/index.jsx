@@ -2,11 +2,18 @@ import React, { useEffect, useState } from 'react';
 import { useParams } from 'react-router-dom';
 import { Card, Button } from 'react-bootstrap';
 import './index.scss'
+import { useCart } from '~/contexts/CartContext';
 const Product = () => {
     const [product, setProduct] = useState(null); // Initialize product state to null
     const [error, setError] = useState(null);
     const params = useParams();
     const [loading, setLoading] = useState(true);
+    
+    const { addToCart, cart, removeFromCart } = useCart();
+    
+    const isInCart = () => { 
+        return cart.some((item) => item.id === product.id);
+    }
 
     useEffect(() => {
         fetch(`https://fakestoreapi.com/products/${params.id}`)
@@ -52,7 +59,8 @@ const Product = () => {
                     Price: ${product.price.toFixed(2)}
                 </Card.Text>
                 <div>
-                    <Button variant="primary" className="addToCart">Add to Cart</Button>
+                    {isInCart() ? <Button variant="danger" onClick={()=>removeFromCart(product.id)}>Remove from Cart</Button> : <Button variant="primary" onClick={()=>addToCart(product)} className="addToCart">Add to Cart</Button>}
+
                     <Button variant="outline-primary" className="addToWishlist">Add to Wishlist</Button>
                 </div>
             </Card.Body>

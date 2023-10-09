@@ -20,7 +20,7 @@ export default function MyNavbar() {
                         <Dropdown show={showDropdown}  onToggle={(isOpen) => setShowDropdown(isOpen)}>
                             <Dropdown.Toggle variant="default" id="dropdown-basic">
                                 <span className="icon">🛒</span>
-                                <Badge variant="primary">{cart.length}</Badge>
+                                <Badge variant="primary">{cart?.length}</Badge>
                             </Dropdown.Toggle>
 
                             <Dropdown.Menu>
@@ -35,7 +35,7 @@ export default function MyNavbar() {
                                                 <Col xs={8}>
                                                     <h6>
                                                         {
-                                                            item.title.length > 20
+                                                            item.title?.length > 20
                                                                 ? item.title.substring(0, 20) + "..."
                                                                 : item.title
                                                         }

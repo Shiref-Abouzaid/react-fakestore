@@ -1,5 +1,5 @@
 import React from 'react'
-import { createContext, useContext, useState } from 'react';
+import { createContext, useContext, useState, useEffect } from 'react';
 
 const CartContext = createContext();
 
@@ -25,6 +25,7 @@ const CartProvider  = ({children}) => {
         addToCart,
         removeFromCart
     };
+
 
     return (
         <CartContext.Provider value={value}>
