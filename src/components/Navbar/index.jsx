@@ -1,27 +1,23 @@
-import React from 'react'
+import React, {useState} from 'react'
 import './index.scss'
 import { Navbar, Nav, Container, Badge, Dropdown, Row, Col, Image as BImage, Button } from 'react-bootstrap';
 import { Link } from "react-router-dom";
 import { useCart } from '~/contexts/CartContext';
 export default function MyNavbar() {
     const { cart } = useCart();
-
+    const [showDropdown, setShowDropdown] = useState(false);
     return (
         <Navbar bg="light" expand="lg">
             <Container className="justify-content-between">
                 <Navbar.Brand >
-                    <Link to="/react-fakestore">ShopName</Link>
+                    <Link to="/react-fakestore">Fake Store</Link>
 
 
                 </Navbar.Brand>
                 <Navbar.Toggle aria-controls="basic-navbar-nav" />
                 <Navbar.Collapse id="basic-navbar-nav" className="justify-content-end">
                     <Nav>
-                        {/* <Nav.Link href="#cart" className="icon-with-count">
-                            <span className="icon">🛒</span>
-                            <Badge variant="primary">{cart.length}</Badge>
-                        </Nav.Link> */}
-                        <Dropdown>
+                        <Dropdown show={showDropdown}  onToggle={(isOpen) => setShowDropdown(isOpen)}>
                             <Dropdown.Toggle variant="default" id="dropdown-basic">
                                 <span className="icon">🛒</span>
                                 <Badge variant="primary">{cart.length}</Badge>
@@ -53,9 +49,10 @@ export default function MyNavbar() {
 
 
                                 ))}
-                                {cart.length > 5 ? <div className='text-center'>
-                                    <Button variant='primary' size='sm'>Check Cart ({cart.length})</Button>
-                                </div> : null}
+                              <div className='text-center'>
+                                <Link to="/react-fakestore/cart"><Button variant='primary' size='sm'  onClick={() => setShowDropdown(false)} >Check Cart ({cart.length})</Button></Link>
+
+                                </div>
 
                             </Dropdown.Menu>
                         </Dropdown>
