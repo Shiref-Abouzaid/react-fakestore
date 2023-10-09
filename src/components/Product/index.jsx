@@ -1,4 +1,4 @@
-import React, {useState} from 'react';
+import Reac from 'react';
 import './index.scss';
 import { Card, Button } from 'react-bootstrap';
 import { useNavigate   } from 'react-router-dom';
@@ -9,7 +9,7 @@ const Product = ({ product, isInCart, isInWishlist }) => {
     const {addToWishlist, removeFromWishlist} = useWishlist();
 
 
-    const maxLength = 20;
+    const maxLength = 100;
     const navigate = useNavigate();
     const inCart = isInCart(product.id);
     const inWishlist = isInWishlist(product.id);
