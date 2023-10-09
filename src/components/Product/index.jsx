@@ -42,7 +42,6 @@ const Product = ({ product, isInCart }) => {
                         Price: ${product.price}
                     </Card.Text>
                     <div>
-                        <h1>SD {inCart}</h1>
                         {inCart ? <Button variant="danger" onClick={($e)=>handleRemoveFromCartClick($e)}>Remove from Cart</Button> : <Button variant="primary" onClick={($e)=>{handleAddToCartClick($e)}} className="addToCart">Add to Cart</Button>}
                         
                         <Button variant="outline-primary" className="addToWishlist">Add to Wishlist</Button>

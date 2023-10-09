@@ -6,7 +6,7 @@ import Home from "~/pages/Home";
 import Card from "~/pages/Card";
 import Product from "~/pages/Product/index";
 import 'bootstrap/dist/css/bootstrap.min.css';
-
+import Footer from '~/components/Footer';
 function App() {
 
 
@@ -21,6 +21,7 @@ function App() {
             <Route path="/react-fakestore/product/:id" element={<Product />} />
           </Routes>
       </BrowserRouter>
+      <Footer/>
     </AppProviders>
 
   );

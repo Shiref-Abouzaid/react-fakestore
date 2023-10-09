@@ -67,3 +67,9 @@
 .button.addToWishlist:hover {
   background-color: #dce8f3;
 }
+
+.spinner-container {
+  min-height: 70vh;
+  display: flex;align-items: center;
+  justify-content: center;
+}
