@@ -1,7 +1,8 @@
 import React, {useState,useEffect} from 'react'
+
 import './index.scss';
 
-export default function Categories({setSelectedCategory}) {
+export default function Categories({setSelectedCategory, getProducts}) {
     const [categories , setCategories]= useState([])
   
 
@@ -22,9 +23,12 @@ export default function Categories({setSelectedCategory}) {
             {categories.map((category) => (
                 <div key={category} className="category-card" onClick={()=>setSelectedCategory(category)}>
   
-                    <h3>{category}</h3>
+                    <h6>{category}</h6>
                 </div>
             ))}
+            <div className="category-card"  onClick={()=>getProducts()}>
+                <h6>All</h6>
+            </div>
         </div>
     );
 }

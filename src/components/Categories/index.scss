@@ -23,12 +23,23 @@
             object-fit: cover;
         }
 
-        h3 {
+        h6 {
             text-align: center;
             padding: 10px;
             background-color: #4A90E2; /* Blue background for category name */
             color: white;
             margin: 0;
         }
+    }
+}
+
+
+
+
+/* Mobile devices */
+@media (max-width: 800px) {
+    .categories .category-card {
+        max-width:none;
+        flex: auto;
     }
 }

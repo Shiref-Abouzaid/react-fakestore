@@ -34,11 +34,8 @@ const Home = () => {
       })
   }
 
-  useEffect(() => {
-    getProdcutsCategory();
-  }, [selectedCategory])
-
-  useEffect(() => {
+  const getProducts = () => {
+    setLoading(true);
     fetch("https://fakestoreapi.com/products")
       .then((response) => {
         if (!response.ok) {
@@ -54,6 +51,14 @@ const Home = () => {
         setError(error.message);
         setLoading(false);
       });
+  }
+
+  useEffect(() => {
+    getProdcutsCategory();
+  }, [selectedCategory])
+
+  useEffect(() => {
+    getProducts();
   }, []);
 
 
@@ -61,7 +66,7 @@ const Home = () => {
   return (
     <>
 
-      <Categories setSelectedCategory={setSelectedCategory} />
+      <Categories setSelectedCategory={setSelectedCategory}  getProducts={getProducts}/>
 
       {error ? <Alert variant="danger">
         Error: {error}
@@ -79,7 +84,7 @@ const Home = () => {
             ))}
         </Row>
       </Container>}
-      
+
 
     </>
 

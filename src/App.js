@@ -17,7 +17,7 @@ function App() {
     
         <Routes>
             <Route path="/react-fakestore/" element={<Home />} />
-            <Route path="/react-fakestore/card" element={<Card />} />
+            <Route path="/react-fakestore/cart" element={<Card />} />
             <Route path="/react-fakestore/product/:id" element={<Product />} />
           </Routes>
       </BrowserRouter>
