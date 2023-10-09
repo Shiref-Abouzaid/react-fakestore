@@ -1,14 +1,19 @@
-import React from 'react';
+import React, {useState} from 'react';
 import './index.scss';
 import { Card, Button } from 'react-bootstrap';
 import { useNavigate   } from 'react-router-dom';
 import { useCart } from '~/contexts/CartContext';
-
-const Product = ({ product, isInCart }) => {
+import { useWishlist } from '~/contexts/WishlistContext';
+const Product = ({ product, isInCart, isInWishlist }) => {
     const { addToCart,removeFromCart } = useCart();
+    const {addToWishlist, removeFromWishlist} = useWishlist();
+
+
     const maxLength = 20;
     const navigate = useNavigate();
-    const inCart = isInCart(product.id)
+    const inCart = isInCart(product.id);
+    const inWishlist = isInWishlist(product.id);
+
     // Truncate the description if it exceeds maxLength
     const truncatedDescription = product.description.length > maxLength
         ? product.description.substring(0, maxLength - 3) + "..."
@@ -29,6 +34,20 @@ const Product = ({ product, isInCart }) => {
             $e.stopPropagation();
             removeFromCart(product.id)
         }
+
+        const handleAddToWishList = ($e)=>{
+            $e.stopPropagation();
+            addToWishlist(product);
+            //setIsLiked(!isLiked);
+        }
+
+        const handleRemoveFromWishList = ($e)=>{
+            $e.stopPropagation();
+            removeFromWishlist(product.id);
+        }
+
+
+    
     return (
         <div onClick={handleCardClick} className='productLink' >
             <Card className="product">
@@ -44,7 +63,8 @@ const Product = ({ product, isInCart }) => {
                     <div>
                         {inCart ? <Button variant="danger" onClick={($e)=>handleRemoveFromCartClick($e)}>Remove from Cart</Button> : <Button variant="primary" onClick={($e)=>{handleAddToCartClick($e)}} className="addToCart">Add to Cart</Button>}
                         
-                        <Button variant="outline-primary" className="addToWishlist">Add to Wishlist</Button>
+                        {inWishlist ? <Button variant="default" className="addToWishlist" onClick={($e)=>handleRemoveFromWishList($e)}><div className='m-0 h1'>❤️</div></Button> : <Button variant="default" className="addToWishlist" onClick={($e)=>handleAddToWishList($e)}><div className='m-0 h1'>♡</div></Button>}
+     
                     </div>
                 </Card.Body>
             </Card>

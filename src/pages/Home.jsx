@@ -3,15 +3,21 @@ import Product from "~/components/Product";
 import Categories from "~/components/Categories";
 import { Container, Row, Col, Spinner, Alert } from 'react-bootstrap';
 import { useCart } from '~/contexts/CartContext';
+import { useWishlist } from "../contexts/WishlistContext";
 const Home = () => {
   const [products, setProducts] = useState([]);
   const [loading, setLoading] = useState(true);
   const [error, setError] = useState(null);
   const { cart } = useCart();
+  const { wishlist } = useWishlist();
   const [selectedCategory, setSelectedCategory] = useState(null);
+
   const isInCart = (id) => {
     return cart.some((item) => item.id === id);
+  }
 
+  const isInWishlist = (id) => {
+    return wishlist.some((item) => item.id === id);
   }
 
   const getProdcutsCategory = useCallback(() => {
@@ -79,7 +85,7 @@ const Home = () => {
           {products.length &&
             products.map((p) => (
               <Col xs={6} md={6} lg={3} key={p.id}>
-                <Product product={p} isInCart={isInCart} />
+                <Product product={p} isInCart={isInCart} isInWishlist={isInWishlist} />
               </Col>
             ))}
         </Row>
