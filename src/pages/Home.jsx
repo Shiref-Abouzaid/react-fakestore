@@ -55,11 +55,11 @@ const Home = () => {
 
   useEffect(() => {
     getProdcutsCategory();
-  }, [selectedCategory])
+  }, [selectedCategory, getProdcutsCategory])
 
   useEffect(() => {
     getProducts();
-  }, [null]);
+  }, []);
 
 
 
