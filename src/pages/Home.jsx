@@ -2,12 +2,17 @@ import React, { useState, useEffect } from "react";
 import Product from "~/components/Product";
 import Categories from "~/components/Categories";
 import { Container, Row, Col } from 'react-bootstrap';
-
+import { useCart } from '~/contexts/CartContext';
 const Home = () => {
     const [products, setProducts] = useState([]);
     const [loading, setLoading] = useState(true);
     const [error, setError] = useState(null);
-  
+    const { cart } = useCart();
+
+    const isInCart = (id) => {
+      return cart.some((item) => item.id === id);
+
+    }
 
     useEffect(() => {
         fetch("https://fakestoreapi.com/products")
@@ -36,7 +41,7 @@ const Home = () => {
         {products.length &&
           products.map((p) => (
             <Col xs={6} md={6} lg={3} key={p.id}>
-              <Product product={p} />
+              <Product product={p} isInCart={isInCart}/>
             </Col>
           ))}
       </Row>

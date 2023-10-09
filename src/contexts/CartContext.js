@@ -14,10 +14,16 @@ const CartProvider  = ({children}) => {
             return [...prevCart, product]
         });
     };
+    const removeFromCart = (id) => {
+        setCart((prevCart) => {
+            return prevCart.filter((product) => product.id !== id)
+        });
+    }
 
     const value = {
         cart,
-        addToCart
+        addToCart,
+        removeFromCart
     };
 
     return (
