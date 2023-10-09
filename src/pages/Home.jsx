@@ -55,7 +55,7 @@ const Home = () => {
 
   useEffect(() => {
     getProdcutsCategory();
-  }, [selectedCategory, getProdcutsCategory])
+  }, [selectedCategory])
 
   useEffect(() => {
     getProducts();
