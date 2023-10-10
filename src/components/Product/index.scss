@@ -79,3 +79,17 @@
     all:unset;
     cursor: pointer;
   }
+
+
+  /* Mobile devices */
+@media (max-width: 800px) {
+    .product-content {
+        padding: 5px !important;
+        height: auto !important;
+    }
+    .button-container {
+        display: flex;
+        flex-wrap: wrap;
+        justify-content: center;
+    }
+}

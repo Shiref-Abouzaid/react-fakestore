@@ -59,7 +59,7 @@ const Product = ({ product, isInCart, isInWishlist }) => {
                     <Card.Text>
                         Price: ${product.price}
                     </Card.Text>
-                    <div>
+                    <div className='button-container'>
                         {inCart ? <Button variant="danger" onClick={($e)=>handleRemoveFromCartClick($e)}>Remove from Cart</Button> : <Button variant="primary" onClick={($e)=>{handleAddToCartClick($e)}} className="addToCart">Add to Cart</Button>}
                         
                         {inWishlist ? <Button variant="default" className="addToWishlist" onClick={($e)=>handleRemoveFromWishList($e)}><div className='m-0 h1'>❤️</div></Button> : <Button variant="default" className="addToWishlist" onClick={($e)=>handleAddToWishList($e)}><div className='m-0 h1'>♡</div></Button>}
