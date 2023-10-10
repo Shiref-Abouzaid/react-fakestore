@@ -48,7 +48,7 @@ const Product = () => {
 
 
     return (
-        <Card className="product">
+        <Card className="product product-page">
             <Card.Img variant="top" src={product.image} alt={product.title} />
             <Card.Body className="product-content">
                 <Card.Title>{product.title}</Card.Title>
