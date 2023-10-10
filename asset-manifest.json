@@ -1,15 +1,15 @@
 {
   "files": {
     "main.css": "/react-fakestore/static/css/main.50c2a6cf.css",
-    "main.js": "/react-fakestore/static/js/main.a5aeeb67.js",
+    "main.js": "/react-fakestore/static/js/main.8371f16d.js",
     "static/js/787.bb89f7cf.chunk.js": "/react-fakestore/static/js/787.bb89f7cf.chunk.js",
     "index.html": "/react-fakestore/index.html",
     "main.50c2a6cf.css.map": "/react-fakestore/static/css/main.50c2a6cf.css.map",
-    "main.a5aeeb67.js.map": "/react-fakestore/static/js/main.a5aeeb67.js.map",
+    "main.8371f16d.js.map": "/react-fakestore/static/js/main.8371f16d.js.map",
     "787.bb89f7cf.chunk.js.map": "/react-fakestore/static/js/787.bb89f7cf.chunk.js.map"
   },
   "entrypoints": [
     "static/css/main.50c2a6cf.css",
-    "static/js/main.a5aeeb67.js"
+    "static/js/main.8371f16d.js"
   ]
 }
